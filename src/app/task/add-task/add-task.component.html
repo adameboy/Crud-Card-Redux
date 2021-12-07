@@ -1,0 +1,11 @@
+<div class="d-flex align-items-center flex-column">
+    <input [formControl]="inputTask" class="form-control form-control-lg w-50" type="text">
+    <button (click)="addTask()" [disabled]="!inputTask.valid" class="btn btn-primary mt-3">Agregar Tarea</button>
+    <button (click)="toggleAll()" [ngClass]="{'btn-success':toggle,'btn-danger':!toggle}" class="btn mt-3">
+        {{toggle?'Marcar Todos':'Desmarcar Todos'}}
+    </button>
+    <button (click)="cleanCompleteTasks()" class="btn btn-warning mt-3">
+        Limpiar Completados
+    </button>
+    <span class="mt-1">Tareas Pendientes: {{pendingTasks}}</span>
+</div>

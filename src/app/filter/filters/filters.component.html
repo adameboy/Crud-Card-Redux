@@ -1,0 +1,12 @@
+<div class="row">
+    <div *ngFor="let filter of valid_filters" [ngClass]="{'justify-content-center':filter === 'completados'
+        ,'justify-content-end':filter === 'pendientes'}" class="col-4 d-flex">
+        <div class="form-check">
+            <input (change)="setFilter(filter)" class="form-check-input" type="radio" name="exampleRadios"
+                [id]="filter" [checked]="filter === 'todos'">
+            <label class="form-check-label" [for]="filter">
+                {{filter.charAt(0).toUpperCase() + filter.slice(1)}}
+            </label>
+        </div>
+    </div>
+</div>

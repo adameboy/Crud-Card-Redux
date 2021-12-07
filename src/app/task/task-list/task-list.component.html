@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="containerCards row">
+        <div *ngFor="let card of tasks | filterTasks:filterSelected" class="col-12 col-md-6 col-lg-3 mt-3">
+            <input [formControl]="editInput" *ngIf="!card.completed" class="form-control form-control-lg w-100" type="text" >
+            <div class="text-center mt-2" *ngIf="!card.completed">
+                <button (click)="editTask(card.id)" class="btn btn-warning">Editar Tarea</button>
+            </div>
+            <div class="card mt-2">
+                <img class="card-img-top" [src]="card.uri" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{card.texto}}</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati nam itaque,
+                        libero at veniam error incidunt quos. Dolore ipsam laborum ea repellendus fugiat eos laudantium
+                        reiciendis voluptatibus, magni, minima quos!</p>
+                </div>
+            </div>
+            <div class="text-center mt-2" *ngIf="!card.completed">
+                <button (click)="completeTask(card.id)" class="btn btn-success">Completar</button>
+            </div>
+            <div class="text-center mt-2" *ngIf="card.completed">
+                <button class="btn btn-primary">Completado</button>
+            </div>
+            <div (click)='deleteTask(card.id)' class="text-center mt-2" *ngIf="card.completed">
+                <button class="btn btn-danger">Eliminar</button>
+            </div>
+        </div>
+    </div>
+</div>

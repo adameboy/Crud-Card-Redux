@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AddTask } from './task/task.actions';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'task-redux';
+
+  constructor(private store:Store){
+    this.store.subscribe(state=>console.log(state));
+  }
 }
